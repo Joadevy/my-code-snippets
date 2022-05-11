@@ -1,24 +1,24 @@
-// The script takes a string and returns an URL slug.
+//var Sigma = [a,b]
 
-function urlSlug(title) {
-  return title.split(' ').reduce((words,word)=>{
-    if (word != ''){
-      words.push(word);
-    }
-    return words
-  },[]).join('-').toLowerCase()
-}
-console.log(urlSlug(" Winter Is  Coming"));
-// This return winter-is-coming.
+let alfabeto = ['a','b'];
+let estadosFinales = ['q1'];
 
-// Other solution might be
-function urlSlug(title) {
-  return title
-    .toLowerCase()
-  // .trim removes the whitespaces from the start/end of the string.
-    .trim()
-	// Split taking an regex (that splits the in an array using the whitespaces as delimiters).
-    .split(/\s+/)
-  // Joining each word in the array in a string with '-' char.
-    .join("-");
+// Recibe un conjunto finito de estados (array) y un conjunto finito de simbolos (array)
+const funcionTransicion = (estados,alfabeto) => {
+  let tablaTransiciones = [];
+  // Se necesita cargar la tabla: estado a traves de cada simbolo => salida, esto varia segun cada automata.
+  console.log(tablaTransiciones[0][2])
+  tablaTransiciones.push(["estadoEntrada","simbolo","estadoSalida"])
 }
+
+const esValida = (cadena) => {
+
+}
+
+funcionTransicion([0,1,2],['a','b','c']);
+
+    const tablaTransiciones = {
+      		"q0":[[alfabeto[0],'q1'],[alfabeto[1],'q2']],
+      		"q1":[[alfabeto[0],'q1'],[alfabeto[1],'q2']],
+      		"q3":[[alfabeto[0],'q1'],[alfabeto[1],'q1']]
+    };
