@@ -15,5 +15,11 @@ function spinalCase(str) {
 console.log(spinalCase('ThisIs spinal_top'));
 // It returns this-is-special-top
 
-let str = "holaComoEstas javier"
-str.replace(/([a-z])([A-Z])/, "$1 $2")
+// Another way to achieve the same result:
+function spinalCases(str) {
+  return str
+  // This regex splits for whitespaces, underscores or is followed by an uppercase letter
+    .split(/\s|_|(?=[A-Z])/)
+    .join("-")
+    .toLowerCase();
+}
