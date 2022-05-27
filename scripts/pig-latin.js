@@ -1,11 +1,11 @@
 /*  Pig Latin is a way of altering English Words. The rules are as follows:
 
-- If a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add ay to it.
+- If a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add 'ay' to it.
 
-- If a word begins with a vowel, just add way at the end.
+- If a word begins with a vowel, just add 'way' at the end.
 */
 
-// ****** INITIAL SOLUTION (looking for resolve the problem) ******
+// ****** INITIAL SOLUTION (focusing on resolve the problem) ******
 function translatePigLatin(str) {
   // Splitting the word in an array.
   let stringArray = str.split('');
@@ -15,14 +15,16 @@ function translatePigLatin(str) {
     indexChar++;
   }
   
-  // If the word didn't start with vowel
+  // If the word starts with a vowel
   if (indexChar == 0){
+    // Joins the letters in the array and adding 'way' at the end.
     return stringArray.join('').concat('way');
   } else {
-    // Probably the less readable solution but it works and that's the important thing (then optimize)
-    return stringArray.join('').concat(stringArray.join('').slice(0,indexChar)).slice(indexChar).concat('ay');
+    // Joins the letters to make the string.
+    stringArray = stringArray.join('');
+    // Adds the consonant cluster to the end, then removes the cluster from the beginning and finally concatenates 'ay' at the end.
+    return stringArray.concat(stringArray.slice(0,indexChar)).slice(indexChar).concat('ay');
   }
-  console.log(stringArray);
 }
 
 // Test with a word with no-vowels
