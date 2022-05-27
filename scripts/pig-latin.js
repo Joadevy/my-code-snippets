@@ -30,3 +30,31 @@ function translatePigLatin(str) {
 // Test with a word with no-vowels
 translatePigLatin("rhytm");
 // It returns 'rhytmay'
+
+// **** OPTIMIZING THE CODE ****
+
+function translatePigLatins(str) {
+  // Searching in the beginning ^ the longest match of everything not a vowel (consonants)
+  let consonantRegex = /^[^aeiou]+/;
+  // If pattern found, it saves the match, else, it returns null
+  let myConsonants = str.match(consonantRegex);
+  return myConsonants !== null
+    ? str
+  			// Removing the consonant cluster.
+        .replace(consonantRegex, "")
+  			// Concatenating the consonant at the end.
+        .concat(myConsonants)
+  			// Concatenating 'ay' after the consonant cluster.
+        .concat("ay")
+  	// Else if begins with vowel, just concatenates 'way' at the end.
+    : str.concat("way");
+}
+
+// **** OPTIMIZING A BIT MORE ****
+function translatePigLatins(str) {
+  // Searching for the first vowel index.
+  let firstVowel = str.search(/[aeiou]/);
+  // If the firstVowel index is 0 (starts with vowel) and concatenates 'way' ; else removes the substr til the first vowel index, concatenates the consonants cluster and adds 'ay' at the end.
+  return firstVowel === 0 ? str + 'way' : str.substr(firstVowel) + str.substr(0, firstVowel) + 'ay';
+}
+
