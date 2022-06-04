@@ -11,6 +11,7 @@ function fearNotLetter(str) {
   for (let letter in str){
     // If the letter in the str doesn't match with the abc in this position, that's the error
     if (str[letter] !== abc[firstLetter+parseInt(letter)]){
+      // Returns the letter that is missing
       return abc[firstLetter + parseInt(letter)]
     } 
   }
@@ -18,5 +19,32 @@ function fearNotLetter(str) {
   return undefined
 }
 
+// Test
 fearNotLetter("abcdefghijklmnopqrstuvwxyz");
+// It returns undefined
+fearNotLetter("abcdf");
+// It returns 'e'
+
+
+// Other solution using ASCII 
+function fearNotLetter(str) {
+  // Stores first letter ASCII code.
+  let currCharCode = str.charCodeAt(0);
+  console.log(currCharCode)
+  let missing = undefined;
+
+  str
+    // spliting the string in an array of letters
+    .split("")
+    .forEach(letter => {
+      if (letter.charCodeAt(0) === currCharCode) {
+        currCharCode++;
+      } else {
+        // Saving the letter before search at the str object using the currCharCode ASCII
+        missing = String.fromCharCode(currCharCode);
+      }
+    });
+
+  return missing;
+}
 
