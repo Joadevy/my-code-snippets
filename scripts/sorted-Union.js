@@ -22,3 +22,19 @@ uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 // It returns [ 1, 3, 2, 5, 4 ]
 uniteUnique([1, 2, 3], [5, 2, 1])
 // It returns [ 1, 2, 3, 5 ]
+
+// A different approach using reduce method.
+function uniteUniques(...arr) {
+ 		return arr.reduce((acum,array)=>{
+      // Iterating over each element in every array passed.
+      for (let item of array) {
+        // If the element isn't in the acumulator.
+        if (!acum.includes(item)){
+          acum.push(item)
+        }
+      }
+      return acum
+    },[])
+}
+
+
