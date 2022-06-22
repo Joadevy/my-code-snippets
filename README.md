@@ -5,3 +5,4 @@ I used webs like freecodecamp and codewars, which I strongly recommend.
 Hoy apruebo el parcial de AM2.
 Espero haber aprobado el parcial de AM2.
 Mas novedades pronto.
+Hoy me dan la nota, se aprueba.
