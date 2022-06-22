@@ -4,4 +4,4 @@ I used webs like freecodecamp and codewars, which I strongly recommend.
 
 Hoy apruebo el parcial de AM2.
 Espero haber aprobado el parcial de AM2.
-Hoy me dan la nota, se aprueba.
+Hoy me dan la nota, se aprueba (porfavor)
