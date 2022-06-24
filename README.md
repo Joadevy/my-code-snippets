@@ -6,4 +6,4 @@ Hoy apruebo el parcial de AM2.
 Espero haber aprobado el parcial de AM2.
 Hoy me dan la nota, se aprueba (porfavor)
 Era mentira, hoy me dan la nota, esta vez si.
-APROBE
+APROBE CON 8
