@@ -18,6 +18,6 @@ const new_s = s.myFilter(function(item) {
   return item % 2 === 1;
 });
 
-// Testing
+// Test
 console.log(new_s);
 // It returns [ 23, 65, 5 ]
