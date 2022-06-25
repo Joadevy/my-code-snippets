@@ -13,10 +13,11 @@ Array.prototype.myFilter = function(callback) {
   return newArray;
 };
 
-// Calling the property defining the callback function in the parameter.
+// Calls the property defining the callback function in the parameter.
 const new_s = s.myFilter(function(item) {
   return item % 2 === 1;
 });
 
+// Testing
 console.log(new_s);
 // It returns [ 23, 65, 5 ]
