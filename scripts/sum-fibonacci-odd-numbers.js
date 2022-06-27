@@ -21,3 +21,25 @@ function untilFibonacci(number){
 // Testing
 untilFibonacci(1)
 // It returns 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.
+
+// Another possibility, same result but more readable
+function sumFibs(num) {
+  // Numbers to start the fibo sum
+  let prevNumber = 0;
+  let currNumber = 1;
+  // Variable to store the odd's fibo summation
+  let result = 0;
+  while (currNumber <= num) {
+    // Checks if the fibo's number is an odd.
+    if (currNumber % 2 !== 0) {
+      result += currNumber;
+    }
+    // Updates the fibo sequence.
+    currNumber += prevNumber;
+    prevNumber = currNumber - prevNumber;
+  }
+
+  return result;
+}
+
+
