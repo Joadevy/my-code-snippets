@@ -1,3 +1,3 @@
 # my code snippets
-It's a repository to store some of the algorithms and snippets of code that I had to improve my JS skills.
+It's my repository to store some of the algorithms and snippets of code that I did to improve my JS skills.
 I used webs like freecodecamp and codewars, which I strongly recommend.
