@@ -3,6 +3,7 @@
 
 // First solution (looking for solve the problem)
 function untilFibonacci(number){
+  if (number <= 0) return 0; // In case that the argument is <= 0
   let fiboArray = [1,1] // Initial 2-tuple to do the fibonacci's sequence
   let fiboNumber = 0; // It'll store each fibo-number in the sequence.
   let oddFibonacciSummation = 0;
@@ -18,5 +19,5 @@ function untilFibonacci(number){
 }
 
 // Testing
-untilFibonacci(10)
+untilFibonacci(1)
 // It returns 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.
