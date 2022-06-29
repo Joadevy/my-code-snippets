@@ -10,6 +10,7 @@ function smallestCommons(arr){
     console.log('Este es el acum: '+ minMultiple)
     minMultiple = arr[1] * counter;
     minMultiple % arr[0] == 0 ? founded = true : ''
+  // Once a minMultiple is founded then need to check the range condition
     if (founded){
       arr.reduce((acum) => {
         while(acum<arr[1]){
