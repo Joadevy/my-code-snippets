@@ -4,7 +4,7 @@ function smallestCommons(arr){
   // Sorting to reach the max value in arr[1] && the min in arr[0]
   arr.sort()
   let founded= false; // Keep control if the number is founded.
-  let minMultiple = 1; // To calculate
+  let minMultiple = 1; // To calculate the multiples
   let counter = 1;
   while (founded === false){
     console.log('Este es el acum: '+ minMultiple)
