@@ -4,12 +4,13 @@ function smallestCommons(arr){
   // Sorting to reach the max value in arr[1] && the min in arr[0]
   arr.sort()
   let founded= false; // Keep control if the number is founded.
-  let minMultiple = 1; // To store the different minMultiples before meet the range condition.
+  let commonMultiple = 1; // To store the different minMultiples before meet the range condition.
   let counter = 1; // To calculate the multiples.
   while (founded === false){
-    console.log('Este es el acum: '+ minMultiple)
-    minMultiple = arr[1] * counter;
-    minMultiple % arr[0] == 0 ? founded = true : ''
+    console.log('Este es el acum: '+ commonMultiple)
+  // Calculating the common multiples.
+    commonMultiple = arr[1] * counter;
+    commonMultiple % arr[0] == 0 ? founded = true : ''
   // Once a minMultiple is founded then need to check the range condition
     if (founded){
       arr.reduce((acum) => {
@@ -21,7 +22,7 @@ function smallestCommons(arr){
     }
     counter++
   }
-  return minMultiple
+  return commonMultiple
 }
 
 // Testing
