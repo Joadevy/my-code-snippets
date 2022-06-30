@@ -24,5 +24,6 @@ function smallestCommons(arr){
   return minMultiple
 }
 
+// Testing
 let array = [2,6]
 smallestCommons(array)
