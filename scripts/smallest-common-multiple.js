@@ -29,4 +29,4 @@ function smallestCommons(arr){
 let array = [2,6]
 smallestCommons(array)
 
-// Hacer un ammend para editar el 
+// Hacer un ammend para editar el commit anterior.
