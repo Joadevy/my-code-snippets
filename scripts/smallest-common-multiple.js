@@ -28,3 +28,5 @@ function smallestCommons(arr){
 // Testing
 let array = [2,6]
 smallestCommons(array)
+
+// Hacer un ammend para editar el 
