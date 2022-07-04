@@ -4,32 +4,32 @@
 
 function smallestCommons(arr){
   // Sorting to reach the max value in arr[1] && the min in arr[0]
-		arr.sort((a,b)=>{
-				return a === b ? 0 : a>b ? 1 : -1
-		});
+  arr.sort((a,b)=>{
+   return a === b ? 0 : a>b ? 1 : -1
+  });
   let founded= false; // Keep control if the number is founded.
   let commonMultiple = 1; // To store the different multiples before meet the range condition.
   let counter = 1; // To calculate the multiples.
   while (founded === false){
   // Calculating the common multiples.
     commonMultiple = arr[1] * counter;
-		commonMultiple % arr[0] == 0 ? founded = true : ''
+    commonMultiple % arr[0] == 0 ? founded = true : ''
   // Once a minMultiple is founded then need to check the range condition
-			if (founded){
-				let notMultiple = false; // Flag to track the multiples in the range.
-				arr.reduce((acum) => {
-        while(acum<arr[1] && !notMultiple){
-				  commonMultiple % acum == 0 ? '' : notMultiple = true;      
+     	if (founded){
+	   let notMultiple = false; // Flag to track the multiples in the range.
+	   arr.reduce((acum) => {
+           while(acum<arr[1] && !notMultiple){
+		commonMultiple % acum == 0 ? '' : notMultiple = true;      
           acum++	
         }
       },arr[0]+1)
-				if (notMultiple){
-						founded = false; // To do the while loop again and search for a new commonMultiple 
-				}
+	if (notMultiple){
+	   founded = false; // To do the while loop again and search for a new commonMultiple 
+	}
     }
     counter++ // Increments the commonMultiple's factor.
   }
-		return commonMultiple
+  return commonMultiple
 }
 		
 // Testing
