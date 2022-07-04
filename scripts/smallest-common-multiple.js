@@ -1,7 +1,7 @@
 // Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters. The parameter will be an array that represents the range.
 
 // ***** First solution, looking to solve the problem *****
-
+ 
 function smallestCommons(arr){
   // Sorting to reach the max value in arr[1] && the min in arr[0]
 		arr.sort((a,b)=>{
