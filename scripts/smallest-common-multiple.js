@@ -2,13 +2,11 @@
 
 function smallestCommons(arr){
   // Sorting to reach the max value in arr[1] && the min in arr[0]
- console.log(arr);
 		arr.sort((a,b)=>{
 				return a === b ? 0 : a>b ? 1 : -1
 		});
-console.log(arr)
   let founded= false; // Keep control if the number is founded.
-  let commonMultiple = 1; // To store the different minMultiples before meet the range condition.
+  let commonMultiple = 1; // To store the different multiples before meet the range condition.
   let counter = 1; // To calculate the multiples.
   while (founded === false){
   // Calculating the common multiples.
@@ -16,27 +14,21 @@ console.log(arr)
 		commonMultiple % arr[0] == 0 ? founded = true : ''
   // Once a minMultiple is founded then need to check the range condition
 			if (founded){
-				console.log('Probando con ' + commonMultiple);
 				let notMultiple = false;
-				console.log(arr[0]);
-				console.log(notMultiple);
 				arr.reduce((acum) => {
         while(acum<arr[1] && !notMultiple){
-						console.log(acum);
 						commonMultiple % acum == 0 ? '' : notMultiple = true;      
           acum++	
         }
       },arr[0]+1)
-				console.log(notMultiple);
-					if (!notMultiple){
-						console.log('el valor  ' + commonMultiple + ' cumple la prop' );
-				} else {
+				if (notMultiple){
 						founded = false;
 				}
     }
     counter++
   }
-  return commonMultiple
+		console.log(commonMultiple);
+		return commonMultiple
 }
 		
 // Testing/
