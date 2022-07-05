@@ -2,6 +2,8 @@
 
 // Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
 
+// *** First solution, looking to solve the problem ***
+
 function dropElements(arr, func) {
 // While there are something in the array and the func with the first element returns false.
   while(!func(arr[0]) && arr.length){
