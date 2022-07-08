@@ -3,8 +3,7 @@
 function steamrollArray(arr){
 		return arr.reduce((result,element)=> {
 				if (Array.isArray(element)) {
-						console.log(element)
-						return result
+					return result.concat(steamrollArray(element))
 				} else {
 						result.push(element)	
 				}
@@ -12,5 +11,4 @@ function steamrollArray(arr){
 		},[]);
 }
 
-console.log(steamrollArray([1, [2], [3, [[4]]]]));
-
+console.log(steamrollArray([1, {}, [3, [[4]]]])) 
