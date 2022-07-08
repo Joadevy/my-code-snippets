@@ -18,3 +18,13 @@ function steamrollArray(arr){
 // Testing
 console.log(steamrollArray([1, {}, [3, [[4]]]])) 
 // It returns [1,{},3,4]
+
+// Another more readable solution
+function steamRollArray(arr) {
+  // Saves an array concatenating each item in arr (used in the recursion)  
+  const flat = [].concat(...arr);
+  // If some element in flat is an array, calls the function recursively, else just return the variable..
+  return flat.some(Array.isArray) ? steamRollArray(flat) : flat;
+}
+
+
