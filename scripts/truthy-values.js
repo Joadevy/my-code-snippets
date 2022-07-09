@@ -3,9 +3,8 @@
 // In JavaScript, truthy values are values that translate to true when evaluated in a Boolean context.
 
 function truthCheck(collection, pre) {
-  return collection.reduce((status,element)=> {
-    return console.log(element);
-  },'');
+  return collection.every(element => collection.some(value => element[pre]))
 }
 
-truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot");
+truthCheck([{name: "freeCodeCamp", users: [{name: "Quincy"}, {name: "Naomi"}]}, {name: "Code Radio", users: [{name: "Camperbot"}]}, {name: "", users: []}], "users")
+
