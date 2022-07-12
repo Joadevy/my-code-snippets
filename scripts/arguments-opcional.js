@@ -2,7 +2,7 @@
 
 // First iteration, looking for solve the problem.
 function addTogether(...args) {
-  if (args.length === 2 && typeof args[0] === 'number' && typeof args[1] === 'number'){
+  if (args.length == 2 && typeof args[0] === 'number' && typeof args[1] === 'number'){
   	return args.reduce ((sum,number) => {	
       return sum+=number
     },0)
@@ -11,9 +11,23 @@ function addTogether(...args) {
     	return addTogether(args[0],secondNumber)
   	}
   }
+  // If all the previous conditions resulted unmet
   return undefined
 }
 
 // Testing
 addTogether(2)(3);
 // Returns 5, the first time it returns the function waiting for a second argument and then calls the addTogether when it receives the second number.
+
+
+// A cleaner solition using early return
+function addTogethers() {
+  const [first, second] = arguments;
+  if (typeof(first) !== "number")
+    return undefined;
+  if (second === undefined)
+    return (second) => addTogether(first, second);
+  if (typeof(second) !== "number")
+    return undefined;
+  return first + second;
+}
