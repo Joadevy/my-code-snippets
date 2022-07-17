@@ -17,21 +17,26 @@ let arabicRoman = {
 }
 
 function convertToRoman(num) {
-  let numInRoman = ''
-	
-  while (num>0){
+  let numInRoman = '';
+  
+  while (num>0){ // Once num reaches 0, it'll stop.
+// Iterating throw the keys and sorting them (because the default order is ascendent)
   	(Object.keys(arabicRoman).sort(function(a,b){
    		return b - a;
-		})).forEach(key => {
+		})).forEach(key => { 
+// Iterates on a key til while the result of num-key>0, the changes to other key.
       while(num-key>=0){
       	num = num-key
-        numInRoman+=arabicRoman[key]
+        numInRoman+=arabicRoman[key] // Acummulates the roman equivalent.
       }   
     })
   }
  return numInRoman;
 }
 
+// Testing
 convertToRoman(3999);
-// convertToRoman(12) should return the string XII
-// convertToRoman(45) should return the string XLV.
+// It returns 'MMMCMXCIX'
+
+convertToRoman(12) // should return the string XII (passed)
+convertToRoman(45) // should return the string XLV (passed)
