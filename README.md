@@ -1,6 +1,6 @@
 # my code snippets
 
-It's my repository to store some of the algorithms and snippets of code that I did to improve my JS skills.
+It's my repository to store some of the algorithms and snippets of code that I did to improve my coding skills.
 
 ## Documentation
 
