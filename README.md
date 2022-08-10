@@ -8,8 +8,8 @@ It's my repository to store some of the algorithms and snippets of code that I d
 
 ## Roadmap
 
-- Add code-snippets and JS scripts
-- Improve documentation
+- Add code-snippets and JS scripts.
+- Improve documentation.
 - Completed challenges and certifications with JS or others.
 
 ## Author
