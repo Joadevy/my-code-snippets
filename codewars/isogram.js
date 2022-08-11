@@ -22,3 +22,12 @@ isIsogram("aba"); // => false
 isIsogram(""); // => true
 isIsogram("Dermatoglyphics"); // => true
 isIsogram("label") // => false
+
+
+
+// A clever approach:
+
+// Uses a set (that can't repeat elements) and uses the size to compare with the original string.
+function isIsogram(str){
+  return new Set(str.toUpperCase()).size == str.length;
+}
