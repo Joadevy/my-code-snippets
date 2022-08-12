@@ -24,6 +24,12 @@ function solution(str,ending){
   },'') === ending; // Finally compares if the ending of str founded === ending
 }
 
+
+// Finally I discovered the js built-in method to solve this.. but too late!
+function solution(str, ending){
+  return str.endsWith(ending);
+}
+
 // Testing
 solution('abcde','cde'); // => true
 solution('abcde', 'abc'); // => false
