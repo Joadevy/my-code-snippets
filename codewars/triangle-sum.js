@@ -23,6 +23,11 @@ function rowSumOddNumbers(n) {
   return result
 }
 
+// Yeah, I overengineered. The solution was actually simple like:
+function rowSumOddNumbers(n) {
+  return Math.pow(n, 3);
+}
+
 // Tests
 rowSumOddNumbers(0) // => 0 (it's not a valid input anyways)
 rowSumOddNumbers(1) // => 1
