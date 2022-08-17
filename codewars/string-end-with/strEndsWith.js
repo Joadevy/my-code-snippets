@@ -1,8 +1,3 @@
-// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
-
-// Examples:
-// solution('abc', 'bc') // returns true
-// solution('abc', 'd') // returns false
 
 // It was my first solution but it passed the first test's but not the seconds for any reason that I didn't understand.
 function solutionOne(str, ending){
@@ -11,7 +6,7 @@ function solutionOne(str, ending){
 }
 
 // This is my second solution that is more complex & less readable but passed all the tests.
-function solution(str,ending){
+export default function solution(str,ending){
   let index = str.length - ending.length; // The index for start comparing
   let counter = 0; // To track the position in the str
   return str.split('').reduce((acumEnding,letter) => {
@@ -26,12 +21,12 @@ function solution(str,ending){
 
 
 // Finally I discovered the js built-in method to solve this.. but too late!
-function solution(str, ending){
+/* function solution(str, ending){
   return str.endsWith(ending);
-}
+} */
 
 // Testing
-solution('abcde','cde'); // => true
-solution('abcde', 'abc'); // => false
-solution('myStringExample','Example') // => true
-solution('myStringExample','example') // => false (case matter)
+// solution('abcde','cde'); // => true
+// solution('abcde', 'abc'); // => false
+// solution('myStringExample','Example') // => true
+// solution('myStringExample','example') // => false (case matter)
