@@ -24,15 +24,15 @@ export function validBraces(braces){
     return false
 }
 
-// Also I loved this clean syntax approach
-function validBracesAlternative(braces) {
+// Also I loved this clean syntax approach, but not very efficient (talking about cost in long-term)
+function validBracesAlt(braces) {
     return (
         (braces.includes("()"))
-        ? validBraces(braces.replace("()", ""))
+        ? validBracesAlt(braces.replace("()", ""))
         : (braces.includes("[]"))
-            ? validBraces(braces.replace("[]", ""))
+            ? validBracesAlt(braces.replace("[]", ""))
             : (braces.includes("{}"))
-                ? validBraces(braces.replace("{}", ""))
+                ? validBracesAlt(braces.replace("{}", ""))
                 : (braces.length > 0)
                     ? false
                     : true
