@@ -1,3 +1,4 @@
+// My solution
 export function validBraces(braces){ 
     const oppositeBrace = {
         '(' : ')',
@@ -21,4 +22,19 @@ export function validBraces(braces){
         return true
     }
     return false
+}
+
+// Also I loved this clean syntax approach
+function validBracesAlternative(braces) {
+    return (
+        (braces.includes("()"))
+        ? validBraces(braces.replace("()", ""))
+        : (braces.includes("[]"))
+            ? validBraces(braces.replace("[]", ""))
+            : (braces.includes("{}"))
+                ? validBraces(braces.replace("{}", ""))
+                : (braces.length > 0)
+                    ? false
+                    : true
+    );
 }
