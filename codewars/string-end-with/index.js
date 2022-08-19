@@ -6,7 +6,7 @@ function solutionOne(str, ending){
 }
 
 // This is my second solution that is more complex & less readable but passed all the tests.
-export default function solution(str,ending){
+export function solution(str,ending){
   let index = str.length - ending.length; // The index for start comparing
   let counter = 0; // To track the position in the str
   return str.split('').reduce((acumEnding,letter) => {
@@ -21,12 +21,7 @@ export default function solution(str,ending){
 
 
 // Finally I discovered the js built-in method to solve this.. but too late!
-/* function solution(str, ending){
+function solutionAlernative(str, ending){
   return str.endsWith(ending);
-} */
+}
 
-// Testing
-// solution('abcde','cde'); // => true
-// solution('abcde', 'abc'); // => false
-// solution('myStringExample','Example') // => true
-// solution('myStringExample','example') // => false (case matter)
