@@ -1,5 +1,5 @@
 {
-  "devDependencies": {
-    "vitest": "^0.22.0"
+  "dependencies": {
+    "vitest": "^0.22.1"
   }
 }
