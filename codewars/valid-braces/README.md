@@ -7,9 +7,11 @@ All input strings will be nonempty, and will only consist of parentheses, bracke
 What is considered Valid?
 A string of braces is considered valid if all braces are matched with the correct brace.
 
+``` javascript
 Examples
 "(){}[]"   =>  True
 "([{}])"   =>  True
 "(}"       =>  False
 "[(])"     =>  False
 "[({})](]" =>  False
+```
