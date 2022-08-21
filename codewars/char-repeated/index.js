@@ -1,5 +1,5 @@
-function duplicateCount(text){
-  str = text.toUpperCase(); // To avoid mutation of the text
+export function duplicateCount(text){
+  let str = text.toUpperCase(); // To avoid mutation of the text
   return str.split('').reduce((repeats,char)=>{
     // Iterating through the next index of the actual char to the end of text
     for (let index=str.indexOf(char)+1;index<str.length;index++){
