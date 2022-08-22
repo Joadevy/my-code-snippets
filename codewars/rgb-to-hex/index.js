@@ -1,5 +1,5 @@
 // That was hard. The border cases (with 0 or numbers 0<x<16) were difficult to pass the tests.
-// For the code I used recursion to solve the cases and then checkers with the ternary op for the others.
+// For the code I used recursion to solve the 0-cases and then checkers with the ternary op for the others.
 
 export function rgb(r, g, b){
     return r > 255 ? rgb(255,g,b)              : 
