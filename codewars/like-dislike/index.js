@@ -16,3 +16,18 @@ export function likeOrDislike(buttons) {
       return stack
     },['Nothing']).join()
   }
+
+  // A more performance solution might be:
+  function likeOrDislikeAlt(buttons) {
+    let state = 'Nothing';
+  
+    for (const button of buttons) {
+      if (button === state) {
+        state = 'Nothing'
+      } else {
+        state = button
+      }
+    }
+  
+    return state
+  }
