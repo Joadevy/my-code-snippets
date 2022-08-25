@@ -17,6 +17,7 @@ function arrayEquals(a, b) {
 function allRowsDifferent (board) {
     for (let row = 0 ; row <= 9 ; row ++){
         let rowChecking = board[row]
+        // Aca hay que chequear si estan todos los numeros en esa linea
         for (let subRow = row+1; subRow < 9 ; subRow++){
             if (arrayEquals(rowChecking,board[subRow])){ 
                 return false
@@ -29,6 +30,7 @@ function allRowsDifferent (board) {
 function allColumnsDifferent (board){
     for (let column = 0 ; column <= 9 ; column ++){
         const columnChecking = loadColumn(column,board);
+        // Aca hay que chequear si estan todos los numeros en esa linea
         for (let subColumn = column+1; subColumn < 9 ; subColumn++){
             const nextColumn = loadColumn(subColumn,board);
             if (arrayEquals(columnChecking,nextColumn)){ 
@@ -53,6 +55,8 @@ function loadColumn(column,board) {
 // * Ningun renglon sea igual a otro.
 // * Ninguna columna sea igual a otra.
 // * Ningun cuadro 3x3 sea igual a otro.
+
+// => Checkear al mismo tiempo que vemos si es diferente la columna que esten todos los numeros en esa columna.
 
 // Tiene pinta de que hay que checkear con unos cuantos FOR, la pregunta es que chequear primero para mejorar eficiencia?
 
