@@ -1,5 +1,5 @@
 export const doneOrNot = (board) => {
-    if (allRowsDifferent(board) && allColumnsDifferent(board)){
+    if (allRowsOK(board) && allColumnsOK(board)){
         return 'All going well'
     } else {
         return 'Try Again!'
@@ -14,10 +14,11 @@ function arrayEquals(a, b) {
       a.every((val, index) => val === b[index]);
   }
 
-function allRowsDifferent (board) {
-    for (let row = 0 ; row <= 9 ; row ++){
+function allRowsOK (board) {
+    for (let row = 0 ; row < 9 ; row ++){
         let rowChecking = board[row]
-        // Aca hay que chequear si estan todos los numeros en esa linea
+        console.log(rowChecking)
+        if (!allNumbersIn(rowChecking)) return false;
         for (let subRow = row+1; subRow < 9 ; subRow++){
             if (arrayEquals(rowChecking,board[subRow])){ 
                 return false
@@ -27,10 +28,11 @@ function allRowsDifferent (board) {
     return true
 }
 
-function allColumnsDifferent (board){
-    for (let column = 0 ; column <= 9 ; column ++){
+function allColumnsOK(board){
+    for (let column = 0 ; column < 9 ; column ++){
         const columnChecking = loadColumn(column,board);
-        // Aca hay que chequear si estan todos los numeros en esa linea
+        console.log(columnChecking);
+        if (!allNumbersIn(columnChecking)) return false;
         for (let subColumn = column+1; subColumn < 9 ; subColumn++){
             const nextColumn = loadColumn(subColumn,board);
             if (arrayEquals(columnChecking,nextColumn)){ 
@@ -39,6 +41,11 @@ function allColumnsDifferent (board){
         }
     }
     return true
+}
+
+function allNumbersIn (line){
+    const numbers = [1,2,3,4,5,6,7,8,9];
+    return numbers.every(number => line.includes(number))
 }
 
 function loadColumn(column,board) {
@@ -52,10 +59,10 @@ function loadColumn(column,board) {
 
 // Se debe checkear que:
 // * Todos los numeros esten en cada columna, renglon y cuadro 3x3.
-// * Ningun renglon sea igual a otro.
-// * Ninguna columna sea igual a otra.
 // * Ningun cuadro 3x3 sea igual a otro.
 
+// DONE Ningun renglon sea igual a otro.
+// DONE Ninguna columna sea igual a otra.
 // => Checkear al mismo tiempo que vemos si es diferente la columna que esten todos los numeros en esa columna.
 
 // Tiene pinta de que hay que checkear con unos cuantos FOR, la pregunta es que chequear primero para mejorar eficiencia?
