@@ -43,6 +43,32 @@ function allColumnsOK(board){
     return true
 }
 
+
+// Necesito los 3 primeros elementos de cada tres filas.
+function allBoxesOK(boardImmutable){
+    let board = boardImmutable;
+    for (let boxesControl = 0 ; boxesControl <3 ; boxesControl++){
+        for (let boxLine = 0; boxLine < 9 ; boxLine+=3){
+           let boxChecking = loadBox(boxLine,board);
+           console.log(boxChecking);
+        }   
+    }
+    return true
+}
+
+function loadBox(boxLine,board){
+    let arr = []
+    for (let line = boxLine; line < boxLine+3 ; line++){
+        // 1
+        // 2 
+        // 3
+        for (let numbers = 0; numbers < 3 ; numbers++){
+            arr.push(board[line].shift());
+        }
+    }
+    return arr
+}
+
 function allNumbersIn (line){
     const numbers = [1,2,3,4,5,6,7,8,9];
     return numbers.every(number => line.includes(number))
@@ -68,7 +94,19 @@ function loadColumn(column,board) {
 // Tiene pinta de que hay que checkear con unos cuantos FOR, la pregunta es que chequear primero para mejorar eficiencia?
 
 
-console.log(doneOrNot([
+// console.log(doneOrNot([
+//     [5, 3, 4, 6, 7, 8, 9, 1, 2], 
+//     [6, 7, 2, 1, 9, 5, 3, 4, 8],
+//     [1, 9, 8, 3, 4, 2, 5, 6, 7],
+//     [8, 5, 9, 7, 6, 1, 4, 2, 3],
+//     [4, 2, 6, 8, 5, 3, 7, 9, 1],
+//     [7, 1, 3, 9, 2, 4, 8, 5, 6],
+//     [9, 6, 1, 5, 3, 7, 2, 8, 4],
+//     [2, 8, 7, 4, 1, 9, 6, 3, 5],
+//     [3, 4, 5, 2, 8, 6, 1, 7, 9]
+// ]))
+
+console.log(allBoxesOK([
     [5, 3, 4, 6, 7, 8, 9, 1, 2], 
     [6, 7, 2, 1, 9, 5, 3, 4, 8],
     [1, 9, 8, 3, 4, 2, 5, 6, 7],
