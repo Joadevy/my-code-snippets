@@ -14,5 +14,3 @@ For example:
 decodeMorse('.... . -.--   .--- ..- -.. .');
 // should return "HEY JUDE "
 ```
-
-NOTE: For coding purposes you have to use ASCII characters . and -, not Unicode characters.
