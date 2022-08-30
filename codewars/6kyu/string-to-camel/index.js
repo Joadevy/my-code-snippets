@@ -6,5 +6,3 @@ export function toCamelCase(str){
         return camelCase
     },'') 
 }
-
-console.log(toCamelCase('hola_que_tal'))
