@@ -1,4 +1,4 @@
-Return true/True when its argument is an array that has the same nesting structures and same corresponding length of nested arrays as the first array.
+Return true/false when its argument is an array that has the same nesting structures and same corresponding length of nested arrays as the first array.
 
 For example:
 ``` javascript
