@@ -4,4 +4,5 @@ Examples:
 
 ``` javascript
 "the-stealth-warrior" gets converted to "theStealthWarrior"
-"The_Stealth_Warrior" gets converted to "TheStealthWarrior"```
+"The_Stealth_Warrior" gets converted to "TheStealthWarrior" 
+```
