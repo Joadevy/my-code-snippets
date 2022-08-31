@@ -9,7 +9,8 @@ likeOrDislike([Dislike]) => Dislike
 likeOrDislike([Like,Like]) => Nothing
 likeOrDislike([Dislike,Like]) => Like
 likeOrDislike([Like,Dislike,Dislike]) => Nothing
+```
 
 Notes
 If no button is currently active, return Nothing.
-If the list is empty, return Nothing.```
+If the list is empty, return Nothing.
