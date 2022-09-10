@@ -10,7 +10,7 @@ It's a repository to store some of the algorithms and snippets of code that I di
 
 - Add code-snippets and JS scripts.
 - Improve documentation.
-- Completed challenges and certifications with JS or others.
+- Improve tests
 
 ## Author
 
