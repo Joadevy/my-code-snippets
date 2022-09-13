@@ -1,5 +1,5 @@
 # my code snippets
-It's a repository to store some of the algorithms and snippets of code that I did to improve my coding skills.
+You'll find here some of the algorithms and snippets of code that I did to improve my coding skills.
 
 ## Documentation
 
