@@ -1,6 +1,23 @@
 export function expand(expr) {
+    let pot = expr.match(/\^([\d]*)$/)[1]; // [1] because the capture group for only the numbers after ^
+    let coefficient = expr.match(/-[a-z]|[a-z]/i); // Matches the char variable with - or not.
+    console.log(coefficient)
+    return findCoefficient(pot)
 }
 
+function findCoefficient(term){
+    return factorial(term)
+}
+
+function factorial(number){
+    factorial = 1;
+    for (let i=number; i>0 ; i--){
+        factorial*=i
+    }
+    return factorial
+}
+
+console.log(expand('(-y-1)^4'))
 /* 
 Analyzing the problem:
 - input is always an expression like (ax+b)^n
