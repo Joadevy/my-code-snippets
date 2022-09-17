@@ -1,6 +1,7 @@
 export function expand(expr) {
   let pot = expr.match(/\^([\d]*)$/)[1]; // [1] because the capture group for only the numbers after ^
   console.log(pot);
+  if (pot === 0) return "1";
   let coefficient = expr.match(/-?\d*[a-z]/i)[0]; // Matches the char variable with - or not.
   console.log(coefficient);
   let operationTerm = expr.match(/[\+|\-]([\d]*)/i); // [1] because of the capture group
@@ -9,11 +10,30 @@ export function expand(expr) {
     : (operationTerm = parseInt(operationTerm[1]));
   console.log(operationTerm);
 
-  return findCoefficient(pot);
+  let expansion = "";
+  for (let i = pot; i >= 0; i--) {
+    let coef = getCoefficient(coefficient, i);
+    coef.startsWith("-")
+      ? (expansion += coef)
+      : coef.length > 0 && expansion.length > 0
+      ? (expansion += `+${coef}`)
+      : (expansion += coef);
+  }
+  console.log(expansion);
 }
 
-function findCoefficient(term) {
-  return factorial(term);
+function getCoefficient(term, pot) {
+  if (pot === 1) return term;
+  else if (pot === -1) return `-${term}`;
+  else if (pot === 0) return ""; // If coefficient^0 only need the numberTerm.
+  const number = term.match(/-?\d*/)[0];
+  // Checking to pow the number before the coefficient.
+  if (number) {
+    term = term.match(/[a-z]/i);
+    return `${Math.pow(parseInt(number), parseInt(pot))}${term}^${pot}`;
+  }
+
+  return `${term}^${pot}`;
 }
 
 function factorial(number) {
@@ -24,7 +44,7 @@ function factorial(number) {
   return factorial;
 }
 
-console.log(expand("(25x-5)^4"));
+console.log(expand("(-2X-5)^3"));
 /* 
 Analyzing the problem:
 - input is always an expression like (ax+b)^n
