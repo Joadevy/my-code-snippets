@@ -1,23 +1,30 @@
 export function expand(expr) {
-    let pot = expr.match(/\^([\d]*)$/)[1]; // [1] because the capture group for only the numbers after ^
-    let coefficient = expr.match(/-[a-z]|[a-z]/i); // Matches the char variable with - or not.
-    console.log(coefficient)
-    return findCoefficient(pot)
+  let pot = expr.match(/\^([\d]*)$/)[1]; // [1] because the capture group for only the numbers after ^
+  console.log(pot);
+  let coefficient = expr.match(/-?\d*[a-z]/i)[0]; // Matches the char variable with - or not.
+  console.log(coefficient);
+  let operationTerm = expr.match(/[\+|\-]([\d]*)/i); // [1] because of the capture group
+  operationTerm[0].startsWith("-")
+    ? (operationTerm = parseInt(`-${operationTerm[1]}`))
+    : (operationTerm = parseInt(operationTerm[1]));
+  console.log(operationTerm);
+
+  return findCoefficient(pot);
 }
 
-function findCoefficient(term){
-    return factorial(term)
+function findCoefficient(term) {
+  return factorial(term);
 }
 
-function factorial(number){
-    factorial = 1;
-    for (let i=number; i>0 ; i--){
-        factorial*=i
-    }
-    return factorial
+function factorial(number) {
+  factorial = 1;
+  for (let i = number; i > 0; i--) {
+    factorial *= i;
+  }
+  return factorial;
 }
 
-console.log(expand('(-y-1)^4'))
+console.log(expand("(25x-5)^4"));
 /* 
 Analyzing the problem:
 - input is always an expression like (ax+b)^n
