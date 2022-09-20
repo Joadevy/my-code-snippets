@@ -1,9 +1,8 @@
 export function expand(expr) {
   let pot = expr.match(/\^([\d]*)$/)[1]; // [1] because the capture group for only the numbers after ^
-  if (pot === 0) return "1";
+  if (parseInt(pot) === 0) return "1";
 
   let coefficient = expr.match(/-?\d*[a-z]/i)[0]; // Matches the char variable with - or not.
-  console.log(coefficient);
   let operationTerm = expr.match(/[a-z]([\+|\-](\d+))/i); // [1] because of the capture group
   operationTerm[0].startsWith("-")
     ? (operationTerm = parseInt(`-${operationTerm[1]}`))
@@ -11,20 +10,21 @@ export function expand(expr) {
 
   let expansion = "";
   for (let i = pot; i >= 0; i--) {
-    let first = getFirstTerm(pot, i);
+    let first = getFirstTerm(pot, pot - i);
+    console.log(coefficient, i);
     let second = getSecondTerm(coefficient, i);
-    let third = getThirdTerm(operationTerm, i);
+    let third = getThirdTerm(operationTerm, pot - i);
     // console.log("first es", first);
     // console.log("second es", second);
     // console.log("third es", third);
     // console.log("number es:", getNumber(second));
-    getTerm(first, getNumber(second), third, second);
+    let term = getTerm(first, getNumber(second), third, second);
     // console.log("producto es: ", second.match(/-?d*/) * first * third);
-    second.startsWith("-")
-      ? (expansion += second)
-      : second.length > 0 && expansion.length > 0
-      ? (expansion += `+${second}`)
-      : (expansion += second);
+    term.startsWith("-")
+      ? (expansion += term)
+      : term.length > 0 && expansion.length > 0
+      ? (expansion += `+${term}`)
+      : (expansion += term);
   }
   return expansion;
 }
@@ -37,13 +37,14 @@ function getFirstTerm(pow, actual) {
 
 function getSecondTerm(term, pot) {
   if (pot === 1) return term;
-  else if (pot === -1) return `-${term}`;
-  else if (pot === 0) return ""; // If coefficient^0 only need the numberTerm.
+  else if (pot === 0) return ""; //If coefficient^0 only need the numberTerm.
   const number = term.match(/-?\d*/)[0];
   // Checking to pow the number before the coefficient.
   if (number) {
-    if (number === "-") return `${term}^${pot}`;
-    term = term.match(/[a-z]/i);
+    if (number === "-" && pot % 2 === 0) {
+      console.log("ola");
+      return `${term.match(/[a-z]/i)}^${pot}`;
+    }
     return `${Math.pow(parseInt(number), parseInt(pot))}${term}^${pot}`;
   }
 
@@ -55,23 +56,24 @@ function getThirdTerm(operationTerm, pow) {
 }
 
 function getNumber(exp) {
+  // console.log(exp);
   const aux = exp.match(/-?\d*/)[0];
+  // console.log(exp, aux);
+  // console.log(aux, " es aux");
   return aux === "" ? 1 : aux === "-" ? -1 : aux;
 }
 
 function getTerm(first, second, third, exp) {
+  // console.log(first, second, third);
   let aux = exp.match(/[a-z]\^\d+/i);
   if (aux !== null) {
-    // console.log("aux es:", aux[0]);
-    console.log(`${first * second * third}${aux}`);
-    return;
+    return `${first * second * third}${aux}`;
   }
   aux = exp.match(/[a-z]/i);
   if (aux !== null) {
-    console.log(`${first * second * third}${aux}`);
-    return;
+    return `${first * second * third}${aux}`;
   }
-  console.log(`${first * second * third}`);
+  return `${first * second * third}`;
 }
 
 function factorial(number) {
@@ -82,7 +84,8 @@ function factorial(number) {
   return fact;
 }
 
-console.log(expand("(-2y-1)^4"));
+console.log(expand("(x-1)^1"));
+// console.log(getSecondTerm("-4y^3", 3));
 
 /* 
 Analyzing the problem:
