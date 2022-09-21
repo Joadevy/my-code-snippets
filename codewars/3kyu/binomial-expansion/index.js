@@ -52,11 +52,6 @@ function getThirdTerm(operationTerm, pow) {
   return Math.pow(parseInt(operationTerm), parseInt(pow));
 }
 
-function getNumber(exp) {
-  const aux = exp.match(/-?\d*/)[0];
-  return aux === "" ? 1 : aux === "-" ? -1 : aux;
-}
-
 function getTerm(first, second, third, exp) {
   let aux = exp.match(/[a-z]\^\d+/i);
   if (aux !== null) {
@@ -69,6 +64,11 @@ function getTerm(first, second, third, exp) {
     return helper === 1 ? `${aux}` : `${helper}${aux}`;
   }
   return `${first * second * third}`;
+}
+
+function getNumber(exp) {
+  const aux = exp.match(/-?\d*/)[0];
+  return aux === "" ? 1 : aux === "-" ? -1 : aux;
 }
 
 function factorial(number) {
