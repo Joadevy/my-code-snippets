@@ -5,6 +5,8 @@ export function expand(expr) {
 
   let coefficient = expr.match(/-?\d*[a-z]/i)[0]; // Matches the char variable with - or not.
   let operationTerm = expr.match(/[a-z]([\+|\-](\d+))/i); // [1] because of the capture group
+  if (operationTerm === null) return `${coefficient}^${pot}`;
+
   operationTerm[0].startsWith("-")
     ? (operationTerm = parseInt(`-${operationTerm[1]}`))
     : (operationTerm = parseInt(operationTerm[1]));
@@ -55,13 +57,24 @@ function getThirdTerm(operationTerm, pow) {
 function getTerm(first, second, third, exp) {
   let aux = exp.match(/[a-z]\^\d+/i);
   if (aux !== null) {
+    console.log(aux);
     let helper = first * second * third;
-    return helper === 1 ? `${aux}` : `${helper}${aux}`;
+    console.log(helper);
+    return helper === 1
+      ? `${aux}`
+      : helper === -1
+      ? `-${aux}`
+      : `${helper}${aux}`;
   }
+
   aux = exp.match(/[a-z]/i);
   if (aux !== null) {
     let helper = first * second * third;
-    return helper === 1 ? `${aux}` : `${helper}${aux}`;
+    return helper === 1
+      ? `${aux}`
+      : helper === -1
+      ? `-${aux}`
+      : `${helper}${aux}`;
   }
   return `${first * second * third}`;
 }
@@ -78,5 +91,3 @@ function factorial(number) {
   }
   return fact;
 }
-
-console.log(expand("(5m+3)^4"));
