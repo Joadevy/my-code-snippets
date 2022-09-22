@@ -17,7 +17,9 @@ export function expand(expr) {
     let second = getSecondTerm(coefficient, i);
     let third = getThirdTerm(operationTerm, pot - i);
     let term = getTerm(first, getNumber(second), third, second);
-    term.startsWith("-")
+    term.startsWith("0")
+      ? ""
+      : term.startsWith("-")
       ? (expansion += term)
       : term.length > 0 && expansion.length > 0
       ? (expansion += `+${term}`)
