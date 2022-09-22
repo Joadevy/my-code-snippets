@@ -57,9 +57,7 @@ function getThirdTerm(operationTerm, pow) {
 function getTerm(first, second, third, exp) {
   let aux = exp.match(/[a-z]\^\d+/i);
   if (aux !== null) {
-    console.log(aux);
     let helper = first * second * third;
-    console.log(helper);
     return helper === 1
       ? `${aux}`
       : helper === -1
