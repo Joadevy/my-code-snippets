@@ -91,7 +91,6 @@ export function parseInt(string) {
 }
 
 console.log(parseInt("thousand hundred fifty hundred five"));
-// Posibilidades son:
 // hundred => 100 / 999
 // thousand hundred =>  1100 - 99100
 // hundred thousand => 100000 - 999999
