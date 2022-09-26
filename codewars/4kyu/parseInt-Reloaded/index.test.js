@@ -1,4 +1,5 @@
 import { it, describe, expect } from "vitest";
+import { parseInt } from "./index";
 
 describe("Tests", () => {
   it("test", () => {
