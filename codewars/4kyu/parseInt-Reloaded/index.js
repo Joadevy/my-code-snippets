@@ -31,6 +31,7 @@ const map = {
   thousand: 1000,
   million: 1000000,
 };
+
 export function parseInt(string) {
   const arr = string
     .toLowerCase()
