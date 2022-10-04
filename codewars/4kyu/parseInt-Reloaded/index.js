@@ -57,7 +57,7 @@ export function parseInt(string) {
       );
     } else if (condition.length === 2 && condition[0] === "hundred") {
       return (
-        getNumberBefore("hundred", arr) * 1000 +
+        getNumberUntil("hundred", arr, "thousand") * 1000 +
         getNumberAfter("thousand", arr, "thousand") -
         1000
       );
@@ -118,27 +118,5 @@ function getNumberBefore(value, arr) {
 function getNumberAfter(value, arr, target) {
   const index = arr.indexOf(value);
   const after = arr.slice(index + 1, arr.length);
-  console.log(after);
   return getNumber(target, after);
 }
-
-// console.log(
-// parseInt("seven hundred eighty-three thousand nine hundred and nineteen")
-// );
-
-// console.log(parseInt("ninety-nine thousand one hundred"));
-// console.log(parseInt("ninety-nine thousand fifty"));
-// console.log(parseInt("ninety thousand one hundred twenty-five"));
-// console.log(parseInt("one thousand one hundred"));
-// console.log(parseInt("seven hundred thousand"));
-// console.log(parseInt("two hundred thousand three")); // => 200003
-console.log(parseInt("two hundred three thousand")); // 203000
-
-// "one" => 1
-// "twenty" => 20
-// "two hundred forty-six" => 246
-// "seven hundred eighty-three thousand nine hundred and nineteen" => 783919
-
-// hundred => 100 / 999
-// thousand hundred =>  1100 - 99100
-// hundred thousand => 100000 - 999999
