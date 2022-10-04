@@ -2,7 +2,7 @@ import { it, describe, expect } from "vitest";
 import { parseInt } from "./index";
 
 describe("Tests", () => {
-  it("test", () => {
+  it("Should return the number that the words're referecing to", () => {
     expect(parseInt("one")).toBe(1);
     expect(parseInt("twenty")).toBe(20);
     expect(parseInt("two hundred forty-six")).toBe(246);
